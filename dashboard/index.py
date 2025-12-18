@@ -8,7 +8,15 @@ from tkinter import ttk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 
 # Configurações de estilo
-plt.style.use('seaborn')
+# Usando seaborn para estilo moderno
+try:
+    import seaborn as sns
+    sns.set_style("whitegrid")
+    sns.set_palette("husl")
+except ImportError:
+    # Se seaborn não estiver disponível, usa estilo padrão
+    plt.style.use('default')
+
 plt.rcParams.update({
     'font.family': 'Arial',
     'figure.titlesize': 14,
